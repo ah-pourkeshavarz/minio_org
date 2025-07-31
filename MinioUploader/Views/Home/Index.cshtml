@@ -1,0 +1,18 @@
+@model List<Minio.DataModel.Item>
+
+<h2>فایل‌ها</h2>
+
+<form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">آپلود</button>
+</form>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Key
+            <a asp-action="Download" asp-route-objectName="@item.Key">دانلود</a>
+        </li>
+    }
+</ul>
